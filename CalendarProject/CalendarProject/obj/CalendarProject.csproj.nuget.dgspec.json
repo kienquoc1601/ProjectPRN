@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\Project\\C#\\CalendarProject\\CalendarProject\\CalendarProject.csproj": {}
+    "D:\\Code\\Project\\CSharp\\CalendarProject\\CalendarProject\\CalendarProject.csproj": {}
   },
   "projects": {
-    "D:\\Code\\Project\\C#\\CalendarProject\\CalendarProject\\CalendarProject.csproj": {
+    "D:\\Code\\Project\\CSharp\\CalendarProject\\CalendarProject\\CalendarProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\Project\\C#\\CalendarProject\\CalendarProject\\CalendarProject.csproj",
+        "projectUniqueName": "D:\\Code\\Project\\CSharp\\CalendarProject\\CalendarProject\\CalendarProject.csproj",
         "projectName": "CalendarProject",
-        "projectPath": "D:\\Code\\Project\\C#\\CalendarProject\\CalendarProject\\CalendarProject.csproj",
+        "projectPath": "D:\\Code\\Project\\CSharp\\CalendarProject\\CalendarProject\\CalendarProject.csproj",
         "packagesPath": "C:\\Users\\LEGION OS\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\Project\\C#\\CalendarProject\\CalendarProject\\obj\\",
+        "outputPath": "D:\\Code\\Project\\CSharp\\CalendarProject\\CalendarProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LEGION OS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,36 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
