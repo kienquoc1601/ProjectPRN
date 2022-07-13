@@ -39,6 +39,12 @@
             this.lbDate = new System.Windows.Forms.Label();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.userMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.addEventToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // dayContainer
@@ -151,6 +157,45 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userMenu,
+            this.adminMenu,
+            this.addEventToolStripMenuItem,
+            this.refreshViewToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1208, 24);
+            this.menuStrip.TabIndex = 11;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // userMenu
+            // 
+            this.userMenu.Name = "userMenu";
+            this.userMenu.Size = new System.Drawing.Size(42, 20);
+            this.userMenu.Text = "User";
+            // 
+            // adminMenu
+            // 
+            this.adminMenu.Name = "adminMenu";
+            this.adminMenu.Size = new System.Drawing.Size(55, 20);
+            this.adminMenu.Text = "Admin";
+            // 
+            // addEventToolStripMenuItem
+            // 
+            this.addEventToolStripMenuItem.Name = "addEventToolStripMenuItem";
+            this.addEventToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.addEventToolStripMenuItem.Text = "Add Event";
+            this.addEventToolStripMenuItem.Click += new System.EventHandler(this.addEventToolStripMenuItem_Click);
+            // 
+            // refreshViewToolStripMenuItem
+            // 
+            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.refreshViewToolStripMenuItem.Text = "Refresh View";
+            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
+            // 
             // CalendarFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -167,10 +212,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dayContainer);
+            this.Controls.Add(this.menuStrip);
             this.Name = "CalendarFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CalendarFrm";
             this.Load += new System.EventHandler(this.CalendarFrm_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +237,10 @@
         private Label lbDate;
         private Button btnPrevious;
         private Button btnNext;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem userMenu;
+        private ToolStripMenuItem adminMenu;
+        private ToolStripMenuItem addEventToolStripMenuItem;
+        private ToolStripMenuItem refreshViewToolStripMenuItem;
     }
 }

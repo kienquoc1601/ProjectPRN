@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalendarProject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,28 @@ namespace CalendarProject
 {
     public partial class CalendarFrm : Form
     {
+        calendarDBContext context = new calendarDBContext();
         int month, year;
-        public CalendarFrm()
+        User currentUser;
+        Account currentAccount;
+
+        public CalendarFrm(User inputUser , Account inputAccount)
         {
+            
             InitializeComponent();
+            currentUser = inputUser;
+            currentAccount = inputAccount;
+            userMenu.Text = currentUser.Username;
+            if (currentAccount.Admin)
+            {
+                adminMenu.Text = "Admin";
+            }
+            else
+            {
+                adminMenu.Text = "User";
+            }
+            DateTime now = DateTime.Now;
+            DisplayDays(now.Month, now.Year);
         }
  
 
@@ -32,13 +51,19 @@ namespace CalendarProject
 
         private void CalendarFrm_Load(object sender, EventArgs e)
         {
-            DisplayDays();
+            
         }
-        private void DisplayDays()
+        
+        private void DisplayDays(int inputMonth , int inputYear)
         {
-            DateTime now = DateTime.Now;
-            month = now.Month;
-            year = now.Year;
+            dayContainer.Controls.Clear();
+            month = inputMonth;
+            year = inputYear;
+            DateTime startDate = new DateTime(year, month, 1);
+            DateTime endDate = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+            List<Event> monthEvent = (from e in context.Events 
+                                      where e.Date >= startDate && e.Date <= endDate && e.UserId == currentUser.UserId
+                                      select e).ToList();
             String monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
             lbDate.Text = monthName + " " + year;
             //get first day of month
@@ -56,64 +81,60 @@ namespace CalendarProject
 
             for(int i = 1; i <= days; i++)
             {
+                
                 UserControlDay ucDays = new UserControlDay();
-                ucDays.day(i);
+                ucDays.ViewDay(i , month ,year , monthEvent,currentUser);
                 dayContainer.Controls.Add(ucDays);
             }
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            dayContainer.Controls.Clear();
-            month--;
-            String monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            lbDate.Text = monthName + " " + year;
-            //get first day of month
-            DateTime startOfMonth = new DateTime(year, month, 1);
-            //get the number of day in the month
-            int days = DateTime.DaysInMonth(year, month);
-            //convert the startofmonth to integer
-            int daysoftheweek = Convert.ToInt32(startOfMonth.DayOfWeek.ToString("d"));
-
-            for (int i = 1; i < daysoftheweek; i++)
+            
+            if (month == 1)
             {
-                UserControlBlank ucBlank = new UserControlBlank();
-                dayContainer.Controls.Add(ucBlank);
+                year--;
+                month = 12;
             }
-
-            for (int i = 1; i <= days; i++)
+            else
             {
-                UserControlDay ucDays = new UserControlDay();
-                ucDays.day(i);
-                dayContainer.Controls.Add(ucDays);
+                month--;
             }
+            //loadEvent(month, year);
+            DisplayDays(month, year);
+            
+        }
+
+        private void addEventToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            AddEventFrm frm = new AddEventFrm(now , currentUser);
+            
+            frm.Show();
+        }
+
+        private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DateTime now = DateTime.Now;
+            
+            DisplayDays(now.Month, now.Year);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            dayContainer.Controls.Clear();
-            month++;
-            String monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            lbDate.Text = monthName + " " + year;
-            //get first day of month
-            DateTime startOfMonth = new DateTime(year, month, 1);
-            //get the number of day in the month
-            int days = DateTime.DaysInMonth(year, month);
-            //convert the startofmonth to integer
-            int daysoftheweek = Convert.ToInt32(startOfMonth.DayOfWeek.ToString("d")) ;
-
-            for (int i = 1; i < daysoftheweek; i++)
+            
+            if(month == 12)
             {
-                UserControlBlank ucBlank = new UserControlBlank();
-                dayContainer.Controls.Add(ucBlank);
+                year++;
+                month = 1;
             }
-
-            for (int i = 1; i <= days; i++)
+            else
             {
-                UserControlDay ucDays = new UserControlDay();
-                ucDays.day(i);
-                dayContainer.Controls.Add(ucDays);
+                month++;
             }
+            //loadEvent(month, year);
+            DisplayDays(month, year);
+            
         }
     }
 }
