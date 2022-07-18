@@ -83,3 +83,4 @@ D:\Code\Project\CSharp\CalendarProject\CalendarProject\bin\Debug\net6.0-windows\
 D:\Code\Project\CSharp\CalendarProject\CalendarProject\obj\Debug\net6.0-windows\CalendarProject.csproj.CopyComplete
 D:\Code\Project\CSharp\CalendarProject\CalendarProject\obj\Debug\net6.0-windows\CalendarProject.AddEventFrm.resources
 D:\Code\Project\CSharp\CalendarProject\CalendarProject\obj\Debug\net6.0-windows\CalendarProject.DayEventFrm.resources
+D:\Code\Project\CSharp\CalendarProject\CalendarProject\obj\Debug\net6.0-windows\CalendarProject.EditEventFrm.resources
