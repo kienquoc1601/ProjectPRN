@@ -66,7 +66,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(114, 60);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(425, 23);
+            this.txtName.Size = new System.Drawing.Size(207, 23);
             this.txtName.TabIndex = 3;
             this.txtName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -74,7 +74,7 @@
             // 
             this.txtDesc.Location = new System.Drawing.Point(113, 111);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(426, 112);
+            this.txtDesc.Size = new System.Drawing.Size(248, 112);
             this.txtDesc.TabIndex = 4;
             this.txtDesc.Text = "";
             // 
@@ -89,7 +89,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(464, 312);
+            this.btnAdd.Location = new System.Drawing.Point(238, 323);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 358);
+            this.ClientSize = new System.Drawing.Size(386, 358);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDesc);

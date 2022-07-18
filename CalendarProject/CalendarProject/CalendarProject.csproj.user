@@ -10,6 +10,9 @@
     <Compile Update="DayEventFrm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EditEventFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,7 +28,8 @@ namespace CalendarProject
 
         private void UserControlDay_DoubleClick(object sender, EventArgs e)
         {
-            DayEventFrm frm = new DayEventFrm(list , currentUser);
+            DateTime date = new DateTime(year, month, day);
+            DayEventFrm frm = new DayEventFrm(list , currentUser ,date);
             frm.Show();
         }
 
@@ -48,9 +49,14 @@ namespace CalendarProject
             year = inputYear;
             lbDay.Text = day+"";
             lbEvent.Text = list.Count + " events";
-            if(day == now.Day && month == now.Month && year == now.Year)
+            
+            if(list.Count > 0)
             {
-                this.BackColor = SystemColors.Highlight;
+                this.BackColor = Color.Khaki;
+            }
+            if (day == now.Day && month == now.Month && year == now.Year)
+            {
+                this.BackColor = Color.PaleTurquoise;
             }
         }
     }
